@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.tejas.selfietest.SelfieTestMainActivity"
+    android:id="@+id/Bingtao">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome To "
+        android:id="@+id/WelcomeToMessage"
+        android:textSize="50dp"
+        android:textColor="#262626"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:layout_above="@+id/SelfieMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selfie "
+        android:id="@+id/SelfieMessage"
+        android:textSize="50dp"
+        android:textColor="#F16894"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The best moments, big and small, from the people you love."
+        android:id="@+id/textView"
+        android:textColor="#262626"
+        android:layout_below="@+id/SelfieMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp"
+        android:typeface="monospace" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src = "@drawable/selfieicon"
+        android:layout_above="@+id/WelcomeToMessage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/SelfieMessage"
+        android:layout_alignEnd="@+id/SelfieMessage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selfie and Privacy"
+        android:id="@+id/textView2"
+        android:textColor="#007AFF"
+        android:textSize="20dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:typeface="monospace" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/JoinButton"
+        android:textColor="@android:color/white"
+        android:background="@drawable/round_button"
+        android:shadowColor="#007AFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="clickFunction" />
+
+
+</RelativeLayout>
