@@ -98,8 +98,8 @@ public class SelfieTestMainActivity extends Activity
             @Override
             public void success(DigitsSession session, String phoneNumber) {
                 // TODO: associate the session userID with your user model
+                startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestSecondScreen.class));
                 Toast.makeText(getApplicationContext(), "Authentication Verified", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestPostSecondActivity.class));
                 Log.i("Info", "Button Tapped, Selfie Joined");
                 finish();
 

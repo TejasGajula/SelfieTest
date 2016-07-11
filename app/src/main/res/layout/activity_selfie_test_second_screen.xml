@@ -12,35 +12,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome Aboard! Please go ahead and enter in your 10-digit phone number to get started!"
-        android:id="@+id/WelcomeMessage"
+        android:text="You&apos;re finally ready to start your Selfie account! Please create a username to connect with your friends! (3-16 character limit) "
+        android:id="@+id/JoinMessage"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@android:color/black" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Input Number"
+        android:text="Input Username"
         android:id="@+id/Username"
         android:onClick="secondClickFunction"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textboxTwo"
         android:layout_gravity="center"
-        android:layout_centerVertical="true"
+        android:inputType="phone"
+        android:imeOptions="actionDone"
+        android:layout_above="@+id/Username"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:inputType="phone"
-        android:imeOptions="actionDone"/>
+        android:layout_alignRight="@+id/JoinMessage"
+        android:layout_alignEnd="@+id/JoinMessage" />
 
 
 
