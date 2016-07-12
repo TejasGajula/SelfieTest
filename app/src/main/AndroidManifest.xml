@@ -28,6 +28,11 @@
             android:name=".SelfieTestThirdScreen"
             android:label="@string/title_activity_selfie_test_third_screen"
             android:theme="@style/CustomDigitsTheme" />
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
@@ -36,6 +41,8 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="927ff6ae5f93654933d4b8de13625e579f3244c2" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
