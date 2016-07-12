@@ -2,12 +2,26 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="lightBlue">#36F6FF</color>
-    <color name="turquoise">#10A1A8</color>
+    <color name="colorAccent">#CBCBCB</color>
+    <color name="selfieRed">#cc3333</color>
+    <color name="selfiePurple">#663399</color>
+    <color name="selfieDarkPurple">#222266</color>
+    <color name="selfieGreen">#198926</color>
+    <color name="selfieOrange">#ae7129</color>
+    <color name="selfieMagenta">#760e4c</color>
     <color name="selfieBlue">#007AFF</color>
-    <color name="selfiePink">#F16894</color>
-    <color name="gray">#8A8A8A</color>
-    <color name="maroon">#802727</color>
-    <color name="darkPurple">#460062</color>
+    <color name="selfieYellow">#ad962f</color>
+    <color name="selfieDarkBlue">#283e6f</color>
+    <color name="selfieBrightYellow">#ffff02</color>
+    <color name="selfieDarkGreen">#006665</color>
+    <color name="selfieButtonRed">#ff6665</color>
+    <color name="selfieButtonPurple">#9900cc</color>
+    <color name="selfieButtonDarkPurple">#aaabcc</color>
+    <color name="selfieButtonGreen">#00ff02</color>
+    <color name="selfieButtonOrange">#ffa500</color>
+    <color name="selfieButtonMagenta">#800080</color>
+    <color name="selfieButtonYellow">#d0aa01</color>
+    <color name="selfieButtonDarkBlue">#353ff8</color>
+    <color name="selfieButtonBrightYellow">#d0aa01</color>
+    <color name="selfieButtonDarkGreen">#009999</color>
 </resources>

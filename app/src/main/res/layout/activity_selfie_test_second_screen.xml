@@ -18,7 +18,7 @@
         android:textSize="21dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/tw__solid_white"
         android:layout_above="@+id/editText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -27,22 +27,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Join Selfie!"
-        android:id="@+id/Username"
+        android:id="@+id/registerButton"
         android:onClick="secondClickFunction"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="194dp" />
+        android:layout_marginBottom="194dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/tw__solid_white"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textboxTwo"
-        android:layout_above="@+id/Username"
+        android:layout_above="@+id/registerButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Username" />
+        android:text="Username"
+        android:textColor="@color/tw__solid_white"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,7 +60,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Email" />
+        android:text="Email"
+        android:textColor="@color/tw__solid_white"/>
 
 
 </RelativeLayout>

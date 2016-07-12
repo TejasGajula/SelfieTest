@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,8 @@ public class SelfieTestMainActivity extends Activity
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_selfie_test_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         TextView welcomeMessage = (TextView) findViewById(R.id.WelcomeToMessage);
         Typeface hel = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         Typeface helvetica = hel.DEFAULT_BOLD;
@@ -55,10 +58,6 @@ public class SelfieTestMainActivity extends Activity
         TextView privacy = (TextView) findViewById(R.id.textView2);
         privacy.setTypeface(hel);
         ImageView selfieLogo = (ImageView) findViewById(R.id.imageView);
-        View decorView = getWindow().getDecorView();
-// Hide the status bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
         /*DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
