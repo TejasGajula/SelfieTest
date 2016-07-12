@@ -10,10 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookDialog;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareButton;
+import com.facebook.share.widget.ShareDialog;
 
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
 
@@ -27,12 +31,14 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         welcomeMessage.setTypeface(helvetica);
         AppEventsLogger.activateApp(this);
         ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentUrl(Uri.parse("https://joinselfie.com"))
-                .build();
+                    .setContentUrl(Uri.parse("joinselfie.com"))
+                    .setContentTitle("Download Selfie today!")
+                    .build();
         ShareButton shareButton = (ShareButton)findViewById(R.id.fb_share_button);
         shareButton.setShareContent(content);
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
-        mediaPlayer.start();
+        MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
+        mediaPlayer.start(); yes.start();
     }
 
 }
