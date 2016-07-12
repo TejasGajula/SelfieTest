@@ -31,6 +31,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
+        <activity android:name=".SelfieTestGrabberPage"/>
         <activity android:name=".SelfieTestPostSecondActivity"></activity>
         <meta-data
             android:name="io.fabric.ApiKey"
