@@ -1,9 +1,12 @@
 package com.example.tejas.selfietest;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.content.Intent;
 import android.util.Log;
@@ -22,6 +25,7 @@ import java.util.TimerTask;
 public class SelfieTestSecondScreen extends Activity {
     //private int[] colors = {Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA,
             //Color.RED};
+    private int index;
     private int[] buttonColors =    {R.color.selfieButtonDarkBlue, R.color.selfieButtonDarkGreen, R.color.selfieButtonDarkPurple,
                                     R.color.selfieButtonGreen, R.color.selfieButtonMagenta, R.color.selfieButtonOrange, R.color.selfieButtonPurple,
                                     R.color.selfieButtonRed, R.color.selfieButtonYellow};
@@ -39,17 +43,46 @@ public class SelfieTestSecondScreen extends Activity {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
-        setBackgroundColor(randInt(0, colors.length-1));
+        setBackgroundColor();
         timer = new Timer();
-        timer.schedule(new updateBackgroundTask(), 0, 10000);
+        timer.schedule(new updateBackgroundTask(), 0, 5000);
     }
 
-    private void setBackgroundColor(int index)
+    private void setBackgroundColor()
     {
-        RelativeLayout l = (RelativeLayout)(findViewById(R.id.main_view));
-        l.setBackgroundResource(colors[index]);
-        Button b = (Button)(findViewById(R.id.registerButton));
-        b.setBackgroundResource(buttonColors[index]);
+        int newIndex = randInt(0, colors.length-1);
+
+        int colorFrom = ContextCompat.getColor(getApplicationContext(), colors[index]);
+        int colorTo = ContextCompat.getColor(getApplicationContext(), colors[newIndex]);
+        int buttonColorFrom = ContextCompat.getColor(getApplicationContext(), buttonColors[index]);
+        int buttonColorTo = ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]);
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+        colorAnimation.setDuration(500); // milliseconds
+        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animator) {
+                RelativeLayout l = (RelativeLayout)(findViewById(R.id.main_view));
+                l.setBackgroundColor((int) animator.getAnimatedValue());
+            }
+
+        });
+        ValueAnimator buttonColorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), buttonColorFrom, buttonColorTo);
+        buttonColorAnimation.setDuration(500); // milliseconds
+        buttonColorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animator) {
+                Button b = (Button)(findViewById(R.id.registerButton));
+                b.setBackgroundColor((int) animator.getAnimatedValue());
+            }
+
+        });
+        colorAnimation.start();
+        buttonColorAnimation.start();
+        //l.setBackgroundResource(colors[index]);
+        //b.setBackgroundResource(buttonColors[newIndex]);
+        index = newIndex;
     }
 
     private int randInt(int low, int high)
@@ -78,7 +111,7 @@ public class SelfieTestSecondScreen extends Activity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    setBackgroundColor(randInt(0, colors.length-1));
+                    setBackgroundColor();
                 }
             });
         }
