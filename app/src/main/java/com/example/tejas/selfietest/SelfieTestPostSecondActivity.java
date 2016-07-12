@@ -1,10 +1,14 @@
 package com.example.tejas.selfietest;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
 
@@ -18,4 +22,5 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         mediaPlayer.start();
     }
+
 }

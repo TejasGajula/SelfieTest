@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class SelfieTestSecondScreen extends Activity {
@@ -27,10 +27,17 @@ public class SelfieTestSecondScreen extends Activity {
     }
 
     public void secondClickFunction(View view) {
-        EditText myTextField = (EditText) findViewById(R.id.textboxTwo);
-       // Toast.makeText(getApplicationContext(), "Congratulations! Thank you for signing up! Your new username is  " + myTextField.getText().toString() + "! Let's get started!!", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(SelfieTestSecondScreen.this, SelfieTestPostSecondActivity.class));
-        Log.i("Number", myTextField.getText().toString());
-        Log.i("Info", "Button Tapped, Selfie Joined");
+        EditText username = (EditText) findViewById(R.id.textboxTwo);
+        if(username.length()>16||username.length()<3)
+        {
+            Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            startActivity(new Intent(SelfieTestSecondScreen.this, SelfieTestPostSecondActivity.class));
+            Log.i("Username", username.getText().toString());
+            Log.i("Info", "Button Tapped, Selfie Joined");
+        }
+
     }
 }
