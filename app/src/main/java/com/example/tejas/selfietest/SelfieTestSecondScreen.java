@@ -19,7 +19,7 @@ public class SelfieTestSecondScreen extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_selfie_test_second_screen);
-        TextView welcomeMessage = (TextView) findViewById(R.id.WelcomeMessage);
+        TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
 
