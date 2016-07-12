@@ -13,12 +13,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class SelfieTestSecondScreen extends Activity {
     //private int[] colors = {Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA,
             //Color.RED};
     private int[] colors = {R.color.selfieBlue, R.color.turquoise, R.color.lightBlue, R.color.selfiePink,
                             R.color.darkPurple, R.color.maroon, R.color.gray};
+    private Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,8 @@ public class SelfieTestSecondScreen extends Activity {
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
         setBackgroundColor(colors[randInt(0, colors.length-1)]);
-
+        timer = new Timer();
+        timer.schedule(new updateBackgroundTask(), 0, 10000);
     }
 
     private void setBackgroundColor(int color)
@@ -43,7 +48,7 @@ public class SelfieTestSecondScreen extends Activity {
     }
 
     public void secondClickFunction(View view) {
-        /*EditText username = (EditText) findViewById(R.id.textboxTwo);
+        EditText username = (EditText) findViewById(R.id.textboxTwo);
         if(username.length()>16||username.length()<3)
         {
             Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();
@@ -54,7 +59,18 @@ public class SelfieTestSecondScreen extends Activity {
             Log.i("Username", username.getText().toString());
             Log.i("Info", "Button Tapped, Selfie Joined");
         }
-        */
-        setBackgroundColor(colors[randInt(0, colors.length-1)]);
+        //setBackgroundColor(colors[randInt(0, colors.length-1)]);
+    }
+    class updateBackgroundTask extends TimerTask
+    {
+        public void run()
+        {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    setBackgroundColor(colors[randInt(0, colors.length-1)]);
+                }
+            });
+        }
     }
 }
