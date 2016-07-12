@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.facebook.FacebookSdk;
 
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
 
@@ -19,6 +20,8 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         mediaPlayer.start();
     }
