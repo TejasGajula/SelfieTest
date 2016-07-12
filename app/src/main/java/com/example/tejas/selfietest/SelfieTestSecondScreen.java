@@ -9,13 +9,16 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class SelfieTestSecondScreen extends Activity {
-    private int[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA,
-            Color.RED};
+    //private int[] colors = {Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA,
+            //Color.RED};
+    private int[] colors = {R.color.selfieBlue, R.color.turquoise, R.color.lightBlue, R.color.selfiePink,
+                            R.color.darkPurple, R.color.maroon, R.color.gray};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +27,14 @@ public class SelfieTestSecondScreen extends Activity {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
-        setBackgroundColor(randInt(0, colors.length-1));
+        setBackgroundColor(colors[randInt(0, colors.length-1)]);
 
     }
 
     private void setBackgroundColor(int color)
     {
-        findViewById(R.id.screen).getRootView().setBackgroundColor(color);
+        RelativeLayout l = (RelativeLayout)(findViewById(R.id.main_view));
+        l.setBackgroundResource(color);
     }
 
     private int randInt(int low, int high)
@@ -51,6 +55,6 @@ public class SelfieTestSecondScreen extends Activity {
             Log.i("Info", "Button Tapped, Selfie Joined");
         }
         */
-        setBackgroundColor(randInt(0, colors.length-1));
+        setBackgroundColor(colors[randInt(0, colors.length-1)]);
     }
 }
