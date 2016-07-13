@@ -38,12 +38,6 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
         AppEventsLogger.activateApp(this);
-        ShareLinkContent content = new ShareLinkContent.Builder()
-                    .setContentUrl(Uri.parse("joinselfie.com"))
-                    .setContentTitle("Download Selfie today!")
-                    .build();
-        ShareButton shareButton = (ShareButton)findViewById(R.id.fb_share_button);
-        shareButton.setShareContent(content);
         TwitterAuthConfig authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
         Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
         TweetComposer.Builder builder = new TweetComposer.Builder(this)
@@ -53,7 +47,22 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
         mediaPlayer.start(); yes.start();
     }
+    public void facebook()
+    {
+        ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentUrl(Uri.parse("joinselfie.com"))
+                .setContentTitle("Download Selfie today!")
+                .build();
+        ShareButton shareButton = (ShareButton)findViewById(R.id.fb_share_button);
+        shareButton.setShareContent(content);
+    }
 
 }
-
+/*<com.facebook.share.widget.ShareButton
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/fb_share_button"
+android:text="bingtao"
+android:layout_below="@+id/JoinMessage"
+android:layout_centerHorizontal="true" />
 

@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.tejas.selfietest.SelfieTestPostSecondActivity">
+    tools:context="com.example.tejas.selfietest.SelfieTestPostSecondActivity"
+    android:onClick="facebook">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,13 +24,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="145dp" />
-    <com.facebook.share.widget.ShareButton
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fb_share_button"
-        android:text="SHARE"
+        android:id="@+id/FacebookImage"
+        android:src = "@drawable/fb_f_logo__blue_144"
+        android:layout_marginTop="66dp"
         android:layout_below="@+id/JoinMessage"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="72dp"
+        android:layout_marginStart="72dp" />
+
 
 
 </RelativeLayout>
+
