@@ -1,5 +1,7 @@
 package com.example.tejas.selfietest;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -19,6 +21,12 @@ import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareButton;
 import com.facebook.share.widget.ShareDialog;
 
+import io.fabric.sdk.android.Fabric;
+
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterCore;
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
+import com.twitter.sdk.android.tweetcomposer.TweetUploadService;
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
 
     @Override
@@ -36,9 +44,16 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
                     .build();
         ShareButton shareButton = (ShareButton)findViewById(R.id.fb_share_button);
         shareButton.setShareContent(content);
+        TwitterAuthConfig authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
+        Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
+        TweetComposer.Builder builder = new TweetComposer.Builder(this)
+                .text("Add me at username on Selfie!");
+        builder.show();
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
         mediaPlayer.start(); yes.start();
     }
 
 }
+
+
