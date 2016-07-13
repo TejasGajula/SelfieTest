@@ -28,7 +28,7 @@ import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 import com.twitter.sdk.android.tweetcomposer.TweetUploadService;
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
-
+    private TwitterAuthConfig authConfig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -38,25 +38,29 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
         AppEventsLogger.activateApp(this);
-        TwitterAuthConfig authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
-        Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
-        TweetComposer.Builder builder = new TweetComposer.Builder(this)
-                .text("Add me at username on Selfie!");
-        //builder.show();
+        authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
         mediaPlayer.start(); yes.start();
     }
     public void facebook(View view)
     {
+
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentUrl(Uri.parse("joinselfie.com"))
+                .setQuote("Add me at username on Selfie!")
                 .setContentTitle("Download Selfie today!")
                 .build();
         ShareDialog shareDialog = new ShareDialog(this);
         shareDialog.show(content, ShareDialog.Mode.AUTOMATIC);
     }
-
+    public void twitter(View view)
+    {
+        Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
+        TweetComposer.Builder builder = new TweetComposer.Builder(this)
+                .text("Add me at username on Selfie!");
+        builder.show();
+    }
 }
 /*<com.facebook.share.widget.ShareButton
 android:layout_width="wrap_content"

@@ -37,6 +37,16 @@
         android:layout_marginStart="72dp"
         android:onClick="facebook"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src = "@drawable/twitterlogo__55acee"
+        android:layout_marginTop="66dp"
+        android:layout_below="@+id/JoinMessage"
+        android:layout_toRightOf="@+id/FacebookImage"
+        android:layout_alignBottom="@+id/FacebookImage"
+        android:onClick="twitter"/>
 
 
 </RelativeLayout>
