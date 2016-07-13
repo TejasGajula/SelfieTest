@@ -65,4 +65,4 @@ android:id="@+id/fb_share_button"
 android:text="bingtao"
 android:layout_below="@+id/JoinMessage"
 android:layout_centerHorizontal="true" />
-
+*/

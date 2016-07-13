@@ -30,13 +30,13 @@
         android:text="Join Selfie!"
         android:id="@+id/registerButton"
         android:onClick="secondClickFunction"
+        android:layout_marginBottom="116dp"
+        android:textColor="@color/tw__solid_white"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="194dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@color/tw__solid_white"/>
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,8 +47,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Username"
-        android:textColor="@color/tw__solid_white"/>
+        android:textColor="@color/tw__solid_white"
+        android:contentDescription="Username" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -61,8 +61,19 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Email"
-        android:textColor="@color/tw__solid_white"/>
+        android:textColor="@color/tw__solid_white"
+        android:contentDescription="Email" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/white_selfie_logo"
+        android:id="@+id/whiteSelfie"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/JoinMessage" />
 
 
 </RelativeLayout>
