@@ -42,19 +42,19 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
         TweetComposer.Builder builder = new TweetComposer.Builder(this)
                 .text("Add me at username on Selfie!");
-        builder.show();
+        //builder.show();
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
         mediaPlayer.start(); yes.start();
     }
-    public void facebook()
+    public void facebook(View view)
     {
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentUrl(Uri.parse("joinselfie.com"))
                 .setContentTitle("Download Selfie today!")
                 .build();
-        ShareButton shareButton = (ShareButton)findViewById(R.id.fb_share_button);
-        shareButton.setShareContent(content);
+        ShareDialog shareDialog = new ShareDialog(this);
+        shareDialog.show(content, ShareDialog.Mode.AUTOMATIC);
     }
 
 }
