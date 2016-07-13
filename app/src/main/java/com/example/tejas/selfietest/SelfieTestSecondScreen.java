@@ -4,7 +4,14 @@ import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -33,20 +40,38 @@ public class SelfieTestSecondScreen extends Activity {
             R.color.selfieGreen, R.color.selfieMagenta, R.color.selfieOrange, R.color.selfiePurple,
             R.color.selfieRed, R.color.selfieYellow};
     private Timer timer;
+    private Button registerButton;
+    private RelativeLayout layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_selfie_test_second_screen);
+
+        registerButton = (Button)(findViewById(R.id.registerButton));
+        layout = (RelativeLayout)(findViewById(R.id.main_view));
+        initializeBackgroundColor();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
-        setBackgroundColor();
         timer = new Timer();
-        timer.schedule(new updateBackgroundTask(), 0, 5000);
+        timer.schedule(new updateBackgroundTask(), 2000, 4000);
     }
+    private void initializeBackgroundColor()
+    {
+        int newIndex = randInt(0, colors.length-1);
+        layout.setBackgroundResource(colors[newIndex]);
+        GradientDrawable buttonDrawable = (GradientDrawable)((DrawableContainer.DrawableContainerState) ((StateListDrawable)
+                (registerButton.getBackground())).getConstantState()).getChildren()[0];
+        buttonDrawable.setColor(ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]));
+        buttonDrawable.setStroke(1, ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]));
+        index=newIndex;
+    }
+
 
     private void setBackgroundColor()
     {
@@ -57,31 +82,30 @@ public class SelfieTestSecondScreen extends Activity {
         int buttonColorFrom = ContextCompat.getColor(getApplicationContext(), buttonColors[index]);
         int buttonColorTo = ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]);
         ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-        colorAnimation.setDuration(500); // milliseconds
+        colorAnimation.setDuration(2000); // milliseconds
         colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
             @Override
             public void onAnimationUpdate(ValueAnimator animator) {
-                RelativeLayout l = (RelativeLayout)(findViewById(R.id.main_view));
-                l.setBackgroundColor((int) animator.getAnimatedValue());
+                layout.setBackgroundColor((int) animator.getAnimatedValue());
             }
 
         });
         ValueAnimator buttonColorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), buttonColorFrom, buttonColorTo);
-        buttonColorAnimation.setDuration(500); // milliseconds
+        buttonColorAnimation.setDuration(2000); // milliseconds
         buttonColorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
             @Override
             public void onAnimationUpdate(ValueAnimator animator) {
-                Button b = (Button)(findViewById(R.id.registerButton));
-                b.setBackgroundColor((int) animator.getAnimatedValue());
+                GradientDrawable buttonDrawable = (GradientDrawable)((DrawableContainer.DrawableContainerState) ((StateListDrawable)
+                        (registerButton.getBackground())).getConstantState()).getChildren()[0];
+                buttonDrawable.setColor((int) animator.getAnimatedValue());
+                buttonDrawable.setStroke(1, (int) animator.getAnimatedValue());
             }
 
         });
         colorAnimation.start();
         buttonColorAnimation.start();
-        //l.setBackgroundResource(colors[index]);
-        //b.setBackgroundResource(buttonColors[newIndex]);
         index = newIndex;
     }
 
