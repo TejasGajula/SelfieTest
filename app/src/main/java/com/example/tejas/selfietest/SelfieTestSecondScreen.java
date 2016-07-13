@@ -42,6 +42,7 @@ public class SelfieTestSecondScreen extends Activity {
     private Timer timer;
     private Button registerButton;
     private RelativeLayout layout;
+    public static String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,8 @@ public class SelfieTestSecondScreen extends Activity {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
+        EditText user = (EditText)findViewById(R.id.editText);
+        username = user.getText().toString();
         timer = new Timer();
         timer.schedule(new updateBackgroundTask(), 2000, 4000);
     }
@@ -139,5 +142,9 @@ public class SelfieTestSecondScreen extends Activity {
                 }
             });
         }
+    }
+    public static String getUsername()
+    {
+        return username;
     }
 }

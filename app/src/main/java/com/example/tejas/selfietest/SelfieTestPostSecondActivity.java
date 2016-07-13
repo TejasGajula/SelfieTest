@@ -58,7 +58,7 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
     {
         Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
         TweetComposer.Builder builder = new TweetComposer.Builder(this)
-                .text("Add me at username on Selfie!");
+                .text("Add me at" + SelfieTestSecondScreen.getUsername() + " on Selfie!");
         builder.show();
     }
 }
