@@ -20,33 +20,38 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="145dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/FacebookImage"
-        android:src = "@drawable/fb_f_logo__blue_144"
-        android:layout_marginTop="66dp"
+        android:src = "@drawable/facebook_f"
+        android:onClick="facebook"
         android:layout_below="@+id/JoinMessage"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="72dp"
-        android:layout_marginStart="72dp"
-        android:onClick="facebook"/>
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:src = "@drawable/twitterlogo__55acee"
-        android:layout_marginTop="66dp"
-        android:layout_below="@+id/JoinMessage"
-        android:layout_toRightOf="@+id/FacebookImage"
-        android:layout_alignBottom="@+id/FacebookImage"
-        android:onClick="twitter"/>
+        android:onClick="twitter"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/FacebookImage"
+        android:layout_toEndOf="@+id/FacebookImage"
+        android:layout_alignBottom="@+id/FacebookImage" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@drawable/selfie_icon_white"
+        android:layout_above="@+id/JoinMessage"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

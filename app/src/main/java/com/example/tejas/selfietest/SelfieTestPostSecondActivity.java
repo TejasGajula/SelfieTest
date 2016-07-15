@@ -65,7 +65,7 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
-        MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
+        MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.father);
         mediaPlayer.start(); yes.start();
 
         timer = new Timer();
