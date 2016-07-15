@@ -31,16 +31,11 @@ public class SelfieTestMainActivity extends Activity
     private static final String TWITTER_KEY = "Ix4z1rPUdVTwEaoSgo60syGKo";
     private static final String TWITTER_SECRET = "zBZA7Q7nS9XtGDrBsLwygDtlMNEZdshIn8PjJo4zuckuJDtT8m";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         ParseQuery<ParseObject> query = ParseQuery.getQuery("SEMedia");
-
-
-
-
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -58,7 +53,7 @@ public class SelfieTestMainActivity extends Activity
         TextView privacy = (TextView) findViewById(R.id.textView2);
         privacy.setTypeface(hel);
         ImageView selfieLogo = (ImageView) findViewById(R.id.imageView);
-        /*DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
+       /*sAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
@@ -100,13 +95,14 @@ public class SelfieTestMainActivity extends Activity
 
        // EditText myTextField = (EditText) findViewById(R.id.TextBox);
        // if (myTextField.length() == 10) {
+        onBackPressed();
+        startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestSecondScreen.class));
         DigitsAuthConfig.Builder temp = new DigitsAuthConfig.Builder();
         temp = temp.withThemeResId(R.style.CustomDigitsTheme);
         temp = temp.withAuthCallBack(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
                 // TODO: associate the session userID with your user model
-                startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestSecondScreen.class));
                 Toast.makeText(getApplicationContext(), "Authentication Verified", Toast.LENGTH_LONG).show();
                 Log.i("Info", "Button Tapped, Selfie Joined");
                 finish();
@@ -119,6 +115,7 @@ public class SelfieTestMainActivity extends Activity
             }
         });
         Digits.authenticate(temp.build());
+
        /*Digits.authenticate(new AuthCallback() {
            @Override
            public void success(DigitsSession session, String phoneNumber) {
@@ -173,8 +170,10 @@ public class SelfieTestMainActivity extends Activity
         */
 
     }
-
-
+    @Override
+    public void onBackPressed()
+    {
+    }
 
 
     }
