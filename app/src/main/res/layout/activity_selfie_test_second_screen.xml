@@ -66,12 +66,13 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/whiteselfieiconbetter"
+        android:id="@+id/white_image_view"
+        android:src = "@drawable/selfie_icon_white"
         android:layout_above="@+id/JoinMessage"
-        android:layout_alignRight="@+id/JoinMessage"
-        android:layout_alignEnd="@+id/JoinMessage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/JoinMessage"
+        android:layout_alignEnd="@+id/JoinMessage" />
 
 </RelativeLayout>
