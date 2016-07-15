@@ -10,12 +10,14 @@ import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ import io.fabric.sdk.android.Fabric;
 
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
+import com.twitter.sdk.android.core.models.Image;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 import com.twitter.sdk.android.tweetcomposer.TweetUploadService;
 
@@ -65,7 +68,7 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
-        MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.father);
+        MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.broccoli);
         mediaPlayer.start(); yes.start();
 
         timer = new Timer();
@@ -81,7 +84,11 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
     }
     private void setBackgroundColor()
     {
-        int newIndex = SelfieTestSecondScreen.randInt(0, colors.length-1);
+        int newIndex;
+        do
+        {
+            newIndex = SelfieTestSecondScreen.randInt(0, colors.length-1);
+        }while (newIndex==index);
         int colorFrom = ContextCompat.getColor(getApplicationContext(), colors[index]);
         int colorTo = ContextCompat.getColor(getApplicationContext(), colors[newIndex]);
 

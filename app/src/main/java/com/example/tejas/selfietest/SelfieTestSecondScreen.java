@@ -79,7 +79,11 @@ public class SelfieTestSecondScreen extends Activity {
 
     private void setBackgroundColor()
     {
-        int newIndex = randInt(0, colors.length-1);
+        int newIndex;
+        do
+        {
+            newIndex = randInt(0, colors.length-1);
+        }while (newIndex==index);
 
         int colorFrom = ContextCompat.getColor(getApplicationContext(), colors[index]);
         int colorTo = ContextCompat.getColor(getApplicationContext(), colors[newIndex]);
