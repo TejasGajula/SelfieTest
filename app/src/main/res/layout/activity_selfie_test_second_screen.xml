@@ -48,6 +48,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="@color/tw__solid_white"
+        android:inputType="text"
         android:contentDescription="Username" />
 
     <EditText
