@@ -60,7 +60,6 @@ public class SelfieTestSecondScreen extends Activity {
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
         EditText user = (EditText)findViewById(R.id.editText);
-        username = user.getText().toString();
         timer = new Timer();
         timer.schedule(new updateBackgroundTask(), 2000, 4000);
     }
@@ -118,19 +117,26 @@ public class SelfieTestSecondScreen extends Activity {
     }
 
     public void secondClickFunction(View view) {
-        EditText username = (EditText) findViewById(R.id.textboxTwo);
-        if(username.length()>16||username.length()<3)
+        EditText user = (EditText) findViewById(R.id.textboxTwo);
+        if(user.length()>16||user.length()<3)
         {
             Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();
         }
         else
         {
             startActivity(new Intent(SelfieTestSecondScreen.this, SelfieTestPostSecondActivity.class));
-            Log.i("Username", username.getText().toString());
+
+            username = user.getText().toString();
+            Log.i("Username", username);
             Log.i("Info", "Button Tapped, Selfie Joined");
         }
         //setBackgroundColor(colors[randInt(0, colors.length-1)]);
     }
+    public static String getUsername()
+    {
+        return username;
+    }
+
     class updateBackgroundTask extends TimerTask
     {
         public void run()
@@ -143,8 +149,5 @@ public class SelfieTestSecondScreen extends Activity {
             });
         }
     }
-    public static String getUsername()
-    {
-        return username;
-    }
+
 }

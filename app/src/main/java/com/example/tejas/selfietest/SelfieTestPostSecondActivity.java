@@ -48,7 +48,7 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
 
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentUrl(Uri.parse("joinselfie.com"))
-                .setQuote("Add me at username on Selfie!")
+                .setContentDescription("Add me at " + SelfieTestSecondScreen.getUsername() + " on Selfie!")
                 .setContentTitle("Download Selfie today!")
                 .build();
         ShareDialog shareDialog = new ShareDialog(this);
@@ -58,7 +58,7 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
     {
         Fabric.with(this, new TwitterCore(authConfig), new TweetComposer());
         TweetComposer.Builder builder = new TweetComposer.Builder(this)
-                .text("Add me at" + SelfieTestSecondScreen.getUsername() + " on Selfie!");
+                .text("Add me at " + SelfieTestSecondScreen.getUsername() + " on Selfie! #selfie #getconnected");
         builder.show();
     }
 }
