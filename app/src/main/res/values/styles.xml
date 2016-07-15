@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="CustomDigitsTheme" parent="android:Theme.Light.NoTitleBar">
+    <style name="CustomDigitsTheme" parent="android:Theme.Light">
         <item name="android:textColorPrimary">#007AFF</item>
         <item name="android:textColorSecondary">@android:color/darker_gray</item>
         <item name="android:windowBackground">@android:color/white</item>
