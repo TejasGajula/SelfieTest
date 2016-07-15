@@ -1,15 +1,22 @@
 package com.example.tejas.selfietest;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,21 +34,70 @@ import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 import com.twitter.sdk.android.tweetcomposer.TweetUploadService;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
     private TwitterAuthConfig authConfig;
+    private int[] colors =    {R.color.selfieDarkBlue, R.color.selfieDarkGreen, R.color.selfieDarkPurple,
+            R.color.selfieGreen, R.color.selfieMagenta, R.color.selfieOrange, R.color.selfiePurple,
+            R.color.selfieRed, R.color.selfieYellow};
+    private Timer timer;
+    private int index;
+
+    private RelativeLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selfie_test_post_second);
+
+        layout = (RelativeLayout)(findViewById(R.id.post_second_layout));
+        initializeBackgroundColor();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
+        welcomeMessage.setTextColor(Color.WHITE);
+        welcomeMessage.setText("Thanks. Want to tell anyone?");
         AppEventsLogger.activateApp(this);
         authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.therealher);
         mediaPlayer.start(); yes.start();
+
+        timer = new Timer();
+        timer.schedule(new updateBackgroundTask(), getResources().getInteger(R.integer.animation_transition_length),
+                                                                        getResources().getInteger(R.integer.animation_stay_length));
+    }
+
+    private void initializeBackgroundColor()
+    {
+        index=SelfieTestSecondScreen.getColorIndex();
+        layout.setBackgroundResource(colors[index]);
+
+    }
+    private void setBackgroundColor()
+    {
+        int newIndex = SelfieTestSecondScreen.randInt(0, colors.length-1);
+        int colorFrom = ContextCompat.getColor(getApplicationContext(), colors[index]);
+        int colorTo = ContextCompat.getColor(getApplicationContext(), colors[newIndex]);
+
+        Log.i("status ", "changing from "+colorFrom+" to "+colorTo);
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+        colorAnimation.setDuration(getResources().getInteger(R.integer.animation_transition_length)); // milliseconds
+        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animator) {
+                layout.setBackgroundColor((int) animator.getAnimatedValue());
+            }
+
+        });
+        colorAnimation.start();
+        index = newIndex;
     }
     public void facebook(View view)
     {
@@ -61,6 +117,19 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
                 .text("Add me at " + SelfieTestSecondScreen.getUsername() + " on Selfie! #selfie #getconnected");
         builder.show();
     }
+    class updateBackgroundTask extends TimerTask
+    {
+        public void run()
+        {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    setBackgroundColor();
+                }
+            });
+        }
+    }
+
 }
 /*<com.facebook.share.widget.ShareButton
 android:layout_width="wrap_content"

@@ -32,7 +32,7 @@ import java.util.TimerTask;
 public class SelfieTestSecondScreen extends Activity {
     //private int[] colors = {Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA,
             //Color.RED};
-    private int index;
+    private static int index;
     private int[] buttonColors =    {R.color.selfieButtonDarkBlue, R.color.selfieButtonDarkGreen, R.color.selfieButtonDarkPurple,
                                     R.color.selfieButtonGreen, R.color.selfieButtonMagenta, R.color.selfieButtonOrange, R.color.selfieButtonPurple,
                                     R.color.selfieButtonRed, R.color.selfieButtonYellow};
@@ -61,7 +61,9 @@ public class SelfieTestSecondScreen extends Activity {
         welcomeMessage.setTypeface(helvetica);
         EditText user = (EditText)findViewById(R.id.editText);
         timer = new Timer();
-        timer.schedule(new updateBackgroundTask(), 2000, 4000);
+        timer.schedule(new updateBackgroundTask(), getResources().getInteger(R.integer.animation_transition_length),
+                                            getResources().getInteger(R.integer.animation_stay_length));
+
     }
     private void initializeBackgroundColor()
     {
@@ -84,7 +86,7 @@ public class SelfieTestSecondScreen extends Activity {
         int buttonColorFrom = ContextCompat.getColor(getApplicationContext(), buttonColors[index]);
         int buttonColorTo = ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]);
         ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-        colorAnimation.setDuration(2000); // milliseconds
+        colorAnimation.setDuration(getResources().getInteger(R.integer.animation_transition_length)); // milliseconds
         colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
             @Override
@@ -111,7 +113,7 @@ public class SelfieTestSecondScreen extends Activity {
         index = newIndex;
     }
 
-    private int randInt(int low, int high)
+    public static int randInt(int low, int high)
     {
         return (int)(Math.random()*(high-low+1)+low);
     }
@@ -136,6 +138,7 @@ public class SelfieTestSecondScreen extends Activity {
     {
         return username;
     }
+    public static int getColorIndex(){ return index;}
 
     class updateBackgroundTask extends TimerTask
     {
