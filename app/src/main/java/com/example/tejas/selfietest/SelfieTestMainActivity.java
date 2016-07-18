@@ -24,8 +24,7 @@ import com.parse.ParseQuery;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import io.fabric.sdk.android.Fabric;
-public class SelfieTestMainActivity extends Activity
-{
+public class SelfieTestMainActivity extends Activity {
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "Ix4z1rPUdVTwEaoSgo60syGKo";
@@ -93,9 +92,8 @@ public class SelfieTestMainActivity extends Activity
 
     public void clickFunction(View view) {
 
-       // EditText myTextField = (EditText) findViewById(R.id.TextBox);
-       // if (myTextField.length() == 10) {
-        onBackPressed();
+        // EditText myTextField = (EditText) findViewById(R.id.TextBox);
+        // if (myTextField.length() == 10) {
         startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestSecondScreen.class));
         DigitsAuthConfig.Builder temp = new DigitsAuthConfig.Builder();
         temp = temp.withThemeResId(R.style.CustomDigitsTheme);
@@ -140,9 +138,9 @@ public class SelfieTestMainActivity extends Activity
                 }
             });
             */
-            //Log.i("Number", myTextField.getText().toString());
-            //Log.i("Info", "Button Tapped, Selfie Joined");
-            //finish();
+        //Log.i("Number", myTextField.getText().toString());
+        //Log.i("Info", "Button Tapped, Selfie Joined");
+        //finish();
             /*switch(view.getId())
             {
             case R.id.JoinButton:
@@ -170,11 +168,4 @@ public class SelfieTestMainActivity extends Activity
         */
 
     }
-    @Override
-    public void onBackPressed()
-    {
-    }
-
-
-    }
-
+}
