@@ -94,13 +94,13 @@ public class SelfieTestMainActivity extends Activity {
 
         // EditText myTextField = (EditText) findViewById(R.id.TextBox);
         // if (myTextField.length() == 10) {
-        startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestSecondScreen.class));
         DigitsAuthConfig.Builder temp = new DigitsAuthConfig.Builder();
         temp = temp.withThemeResId(R.style.CustomDigitsTheme);
         temp = temp.withAuthCallBack(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
                 // TODO: associate the session userID with your user model
+                startActivity(new Intent(SelfieTestMainActivity.this, SelfieTestSecondScreen.class));
                 Toast.makeText(getApplicationContext(), "Authentication Verified", Toast.LENGTH_LONG).show();
                 Log.i("Info", "Button Tapped, Selfie Joined");
                 finish();
@@ -168,4 +168,7 @@ public class SelfieTestMainActivity extends Activity {
         */
 
     }
+    @Override
+    public void onBackPressed()
+    {}
 }

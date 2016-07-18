@@ -47,7 +47,6 @@ public class SelfieTestSecondScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onBackPressed();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_selfie_test_second_screen);
 
@@ -163,10 +162,6 @@ public class SelfieTestSecondScreen extends Activity {
                 }
             });
         }
-    }
-    @Override
-    public void onBackPressed() {
-        // Do Here what ever you want do on back press;
     }
 
 }
