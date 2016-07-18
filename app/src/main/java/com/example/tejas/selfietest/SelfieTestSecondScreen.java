@@ -59,7 +59,7 @@ public class SelfieTestSecondScreen extends Activity {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
-        EditText user = (EditText)findViewById(R.id.editText);
+        EditText user = (EditText)findViewById(R.id.email_edit);
         timer = new Timer();
         timer.schedule(new updateBackgroundTask(), getResources().getInteger(R.integer.animation_transition_length),
                                             getResources().getInteger(R.integer.animation_stay_length));
@@ -67,24 +67,23 @@ public class SelfieTestSecondScreen extends Activity {
     }
     private void initializeBackgroundColor()
     {
-        int newIndex = randInt(0, colors.length-1);
-        layout.setBackgroundResource(colors[newIndex]);
+        index = randInt(0, colors.length-1);
+        layout.setBackgroundResource(colors[index]);
         GradientDrawable buttonDrawable = (GradientDrawable)((DrawableContainer.DrawableContainerState) ((StateListDrawable)
                 (registerButton.getBackground())).getConstantState()).getChildren()[0];
-        buttonDrawable.setColor(ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]));
-        buttonDrawable.setStroke(1, ContextCompat.getColor(getApplicationContext(), buttonColors[newIndex]));
-        index=newIndex;
+        buttonDrawable.setColor(ContextCompat.getColor(getApplicationContext(), buttonColors[index]));
+        buttonDrawable.setStroke(1, ContextCompat.getColor(getApplicationContext(), buttonColors[index]));
     }
 
 
     private void setBackgroundColor()
     {
-        int newIndex;
-        do
-        {
-            newIndex = randInt(0, colors.length-1);
-        }while (newIndex==index);
-
+//        int newIndex;
+//        do
+//        {
+//            newIndex = randInt(0, colors.length-1);
+//        }while (newIndex==index);
+        int newIndex = randInt(0, colors.length-1);
         int colorFrom = ContextCompat.getColor(getApplicationContext(), colors[index]);
         int colorTo = ContextCompat.getColor(getApplicationContext(), colors[newIndex]);
         int buttonColorFrom = ContextCompat.getColor(getApplicationContext(), buttonColors[index]);
@@ -123,7 +122,7 @@ public class SelfieTestSecondScreen extends Activity {
     }
 
     public void secondClickFunction(View view) {
-        EditText user = (EditText) findViewById(R.id.textboxTwo);
+        EditText user = (EditText) findViewById(R.id.username_edit);
         if(user.length()>16||user.length()<3)
         {
             Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();

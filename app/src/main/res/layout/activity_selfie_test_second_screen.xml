@@ -13,16 +13,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You&apos;re finally ready to start your Selfie account! Please give your email and create a username to connect with your friends! (3-16 character limit) "
+        android:text="See you soon."
         android:id="@+id/JoinMessage"
         android:textSize="21dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/tw__solid_white"
-        android:layout_above="@+id/editText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
+        android:layout_above="@+id/email_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:id="@+id/second_page_dummy"
+        android:layout_above="@+id/registerButton"
+        android:layout_alignParentLeft="true"/>
     <Button
         android:background="@drawable/round_button"
         android:layout_width="wrap_content"
@@ -30,50 +35,54 @@
         android:text="Join Selfie!"
         android:id="@+id/registerButton"
         android:onClick="secondClickFunction"
-        android:layout_marginBottom="116dp"
         android:textColor="@color/tw__solid_white"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/second_page_dummy"
+        android:layout_alignEnd="@+id/second_page_dummy" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textboxTwo"
-        android:layout_above="@+id/registerButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/username_edit"
+        android:hint="Requested Username"
+        android:background="@drawable/my_edittext"
+        android:inputType="text"
+        android:contentDescription="Username"
+        android:layout_above="@+id/second_page_dummy"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="@color/tw__solid_white"
-        android:inputType="text"
-        android:contentDescription="Username" />
-
+        android:layout_alignRight="@+id/second_page_dummy"
+        android:layout_alignEnd="@+id/second_page_dummy" />
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/second_page_center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_above="@+id/textboxTwo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/email_edit"
+        android:hint="Email"
+        android:background="@drawable/my_edittext"
+        android:contentDescription="Email"
+        android:layout_marginBottom="4dp"
+        android:layout_above="@+id/username_edit"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="@color/tw__solid_white"
-        android:contentDescription="Email" />
+        android:layout_alignRight="@+id/username_edit"
+        android:layout_alignEnd="@+id/username_edit" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/white_image_view"
         android:src = "@drawable/selfie_icon_white"
-        android:layout_above="@+id/JoinMessage"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/JoinMessage"
-        android:layout_alignEnd="@+id/JoinMessage" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/second_page_center" />
 
 </RelativeLayout>
