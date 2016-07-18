@@ -65,8 +65,8 @@ public class SelfieTestSecondScreen extends Activity {
     {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
         TextView selfieName = (TextView) findViewById(R.id.selfie_name);
-        EditText email = (EditText) findViewById(R.id.email_edit);
-        EditText username = (EditText) findViewById(R.id.username_edit);
+        EditText email = (EditText) findViewById(R.id.email_edit_text);
+        EditText username = (EditText) findViewById(R.id.username_edit_text);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
         email.setTypeface(helvetica);
@@ -130,7 +130,7 @@ public class SelfieTestSecondScreen extends Activity {
     }
 
     public void secondClickFunction(View view) {
-        EditText user = (EditText) findViewById(R.id.username_edit);
+        EditText user = (EditText) findViewById(R.id.username_edit_text);
         if(user.length()>16||user.length()<3)
         {
             Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();
