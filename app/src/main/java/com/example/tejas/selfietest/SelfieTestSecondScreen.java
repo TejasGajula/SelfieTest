@@ -57,8 +57,12 @@ public class SelfieTestSecondScreen extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
+        EditText email = (EditText) findViewById(R.id.email_edit);
+        EditText username = (EditText) findViewById(R.id.username_edit);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
+        email.setTypeface(helvetica);
+        username.setTypeface(helvetica);
         EditText user = (EditText)findViewById(R.id.email_edit);
         timer = new Timer();
         timer.schedule(new updateBackgroundTask(), getResources().getInteger(R.integer.animation_transition_length),
