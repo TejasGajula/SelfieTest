@@ -22,12 +22,7 @@
         android:layout_above="@+id/email_edit"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="42dp" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:id="@+id/second_page_dummy"
-        android:layout_above="@+id/registerButton"
-        android:layout_alignParentLeft="true"/>
+
     <Button
         android:background="@drawable/round_button"
         android:layout_width="wrap_content"
@@ -36,11 +31,12 @@
         android:id="@+id/registerButton"
         android:onClick="secondClickFunction"
         android:textColor="@color/tw__solid_white"
+        android:layout_marginBottom="40dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/second_page_dummy"
-        android:layout_alignEnd="@+id/second_page_dummy" />
+        android:layout_alignLeft="@+id/username_edit"
+        android:layout_alignStart="@+id/username_edit"
+        android:layout_alignRight="@+id/username_edit"
+        android:layout_alignEnd="@+id/username_edit" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -50,11 +46,12 @@
         android:background="@drawable/my_edittext"
         android:inputType="text"
         android:contentDescription="Username"
-        android:layout_above="@+id/second_page_dummy"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/second_page_dummy"
-        android:layout_alignEnd="@+id/second_page_dummy" />
+        android:layout_alignLeft="@+id/email_edit"
+        android:layout_alignStart="@+id/email_edit"
+        android:layout_alignRight="@+id/email_edit"
+        android:layout_alignEnd="@+id/email_edit"
+        android:layout_marginBottom="4dp"
+        android:layout_above="@+id/registerButton" />
     <Space
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -72,17 +69,16 @@
         android:contentDescription="Email"
         android:layout_marginBottom="4dp"
         android:layout_above="@+id/username_edit"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/username_edit"
-        android:layout_alignEnd="@+id/username_edit" />
+        android:layout_centerHorizontal="true" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/white_image_view"
         android:src = "@drawable/selfie_icon_white"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignRight="@+id/email_edit"
+        android:layout_alignEnd="@+id/email_edit"
+        android:layout_alignLeft="@+id/email_edit"
+        android:layout_alignStart="@+id/email_edit"
         android:layout_above="@+id/second_page_center" />
 
 </RelativeLayout>
