@@ -50,7 +50,7 @@
         android:layout_alignStart="@+id/email_edit"
         android:layout_alignRight="@+id/email_edit"
         android:layout_alignEnd="@+id/email_edit"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="12dp"
         android:layout_above="@+id/registerButton" />
     <Space
         android:layout_width="0dp"
@@ -67,7 +67,7 @@
         android:hint="Email"
         android:background="@drawable/my_edittext"
         android:contentDescription="Email"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="12dp"
         android:layout_above="@+id/username_edit"
         android:layout_centerHorizontal="true" />
     <ImageView
@@ -80,5 +80,20 @@
         android:layout_alignLeft="@+id/email_edit"
         android:layout_alignStart="@+id/email_edit"
         android:layout_above="@+id/second_page_center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Selfie"
+        android:id="@+id/selfie_name"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:layout_alignBottom="@+id/white_image_view"
+        android:layout_alignLeft="@+id/white_image_view"
+        android:layout_alignStart="@+id/white_image_view"
+        android:layout_alignRight="@+id/white_image_view"
+        android:layout_alignEnd="@+id/white_image_view" />
 
 </RelativeLayout>

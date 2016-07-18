@@ -56,18 +56,23 @@ public class SelfieTestSecondScreen extends Activity {
         initializeBackgroundColor();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        initializeText();
+        timer = new Timer();
+        timer.schedule(new updateBackgroundTask(), getResources().getInteger(R.integer.animation_transition_length),
+                                            getResources().getInteger(R.integer.animation_stay_length));
+
+    }
+    private void initializeText()
+    {
         TextView welcomeMessage = (TextView) findViewById(R.id.JoinMessage);
+        TextView selfieName = (TextView) findViewById(R.id.selfie_name);
         EditText email = (EditText) findViewById(R.id.email_edit);
         EditText username = (EditText) findViewById(R.id.username_edit);
         Typeface helvetica = Typeface.createFromAsset(getAssets(), "HelveticaNeue.ttf");
         welcomeMessage.setTypeface(helvetica);
         email.setTypeface(helvetica);
         username.setTypeface(helvetica);
-        EditText user = (EditText)findViewById(R.id.email_edit);
-        timer = new Timer();
-        timer.schedule(new updateBackgroundTask(), getResources().getInteger(R.integer.animation_transition_length),
-                                            getResources().getInteger(R.integer.animation_stay_length));
-
+        selfieName.setTypeface(helvetica);
     }
     private void initializeBackgroundColor()
     {
