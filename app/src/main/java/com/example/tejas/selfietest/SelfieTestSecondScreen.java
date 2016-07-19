@@ -44,7 +44,6 @@ public class SelfieTestSecondScreen extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_selfie_test_second_screen);
-
         registerButton = (Button)(findViewById(R.id.registerButton));
         layout = (RelativeLayout)(findViewById(R.id.main_view));
         initializeBackgroundColor();
@@ -126,9 +125,27 @@ public class SelfieTestSecondScreen extends Activity {
 
     public void secondClickFunction(View view) {
         EditText user = (EditText) findViewById(R.id.username_edit_text);
-        if(user.length()>16||user.length()<3)
+        EditText email = (EditText) findViewById(R.id.email_edit_text);
+        int count = 0;
+        for(int i = 0; i<email.length()-1; i++)
+        {
+            if(email.getText().toString().charAt(i)=='@')
+            {
+                count++;
+            }
+        }
+        if(count!=1)
+        {
+            Toast.makeText(getApplicationContext(), "That email is not real!! Try another one.", Toast.LENGTH_LONG).show();
+
+        }
+        else if(user.length()>16||user.length()<3)
         {
             Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();
+        }
+        else if (user.length()>16||user.length()<3 && count!=1)
+        {
+            Toast.makeText(getApplicationContext(), "Neither the usename nor email are eligible!! Try again.", Toast.LENGTH_LONG).show();
         }
         else
         {
