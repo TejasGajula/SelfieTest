@@ -70,7 +70,7 @@ public class SelfieTestSecondScreen extends Activity {
     }
     private void initializeBackgroundColor()
     {
-        index = randInt(0, colors.length-1);
+        index = SelfieTestMainActivity.getColorIndex();
         layout.setBackgroundResource(colors[index]);
         GradientDrawable buttonDrawable = (GradientDrawable)((DrawableContainer.DrawableContainerState) ((StateListDrawable)
                 (registerButton.getBackground())).getConstantState()).getChildren()[0];
