@@ -127,14 +127,18 @@ public class SelfieTestSecondScreen extends Activity {
         EditText user = (EditText) findViewById(R.id.username_edit_text);
         EditText email = (EditText) findViewById(R.id.email_edit_text);
         int count = 0;
-        for(int i = 0; i<email.length()-1; i++)
+        for(int i = 0; i<email.length(); i++)
         {
             if(email.getText().toString().charAt(i)=='@')
             {
                 count++;
             }
         }
-        if(count!=1)
+        if (user.length()>16||user.length()<3 && count!=1)
+        {
+            Toast.makeText(getApplicationContext(), "Neither the usename nor email are eligible!! Try again.", Toast.LENGTH_LONG).show();
+        }
+        else if(count!=1)
         {
             Toast.makeText(getApplicationContext(), "That email is not real!! Try another one.", Toast.LENGTH_LONG).show();
 
@@ -143,10 +147,7 @@ public class SelfieTestSecondScreen extends Activity {
         {
             Toast.makeText(getApplicationContext(), "That username is not eligible!! Try another one within the character limit.", Toast.LENGTH_LONG).show();
         }
-        else if (user.length()>16||user.length()<3 && count!=1)
-        {
-            Toast.makeText(getApplicationContext(), "Neither the usename nor email are eligible!! Try again.", Toast.LENGTH_LONG).show();
-        }
+
         else
         {
             startActivity(new Intent(SelfieTestSecondScreen.this, SelfieTestPostSecondActivity.class));

@@ -16,6 +16,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -38,9 +41,10 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
     private RelativeLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selfie_test_post_second);
-
         layout = (RelativeLayout)(findViewById(R.id.post_second_layout));
         initializeBackgroundColor();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
