@@ -1,7 +1,6 @@
 package com.example.tejas.selfietest;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,11 +17,11 @@ import com.digits.sdk.android.Digits;
 import com.digits.sdk.android.DigitsAuthConfig;
 import com.digits.sdk.android.DigitsException;
 import com.digits.sdk.android.DigitsSession;
-import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
+
 import io.fabric.sdk.android.Fabric;
 public class SelfieTestMainActivity extends Activity {
 

@@ -2,44 +2,28 @@ package com.example.tejas.selfietest;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.facebook.CallbackManager;
-import com.facebook.FacebookDialog;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareButton;
 import com.facebook.share.widget.ShareDialog;
-
-import io.fabric.sdk.android.Fabric;
-
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
-import com.twitter.sdk.android.core.models.Image;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
-import com.twitter.sdk.android.tweetcomposer.TweetUploadService;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import io.fabric.sdk.android.Fabric;
 
 public class SelfieTestPostSecondActivity extends AppCompatActivity {
     private TwitterAuthConfig authConfig;
@@ -52,7 +36,6 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
     private RelativeLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FacebookSdk.sdkInitialize(getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selfie_test_post_second);
 
@@ -65,7 +48,6 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
         welcomeMessage.setTypeface(helvetica);
         welcomeMessage.setTextColor(Color.WHITE);
         welcomeMessage.setText("Thanks. Want to tell anyone?");
-        AppEventsLogger.activateApp(this);
         authConfig =  new TwitterAuthConfig("consumerKey", "consumerSecret");
         MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sariassong);
         MediaPlayer yes = MediaPlayer.create(getApplicationContext(), R.raw.broccoli);
