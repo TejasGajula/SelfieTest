@@ -13,6 +13,76 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="See you soon."
+        android:id="@+id/SeeYouSoon"
+        android:textSize="18dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/tw__solid_white"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+   <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Next"
+    android:id="@+id/DigitsButton"
+    android:textColor="@android:color/white"
+    android:background="@drawable/round_button"
+    android:shadowColor="#007AFF"
+       android:onClick="clickFunction"
+       android:layout_below="@+id/SeeYouSoon"
+       android:layout_alignLeft="@+id/SeeYouSoon"
+       android:layout_alignStart="@+id/SeeYouSoon"
+       android:layout_alignRight="@+id/SeeYouSoon"
+       android:layout_alignEnd="@+id/SeeYouSoon"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/second_page_center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/height_anchor_for_image"
+        android:layout_above="@+id/second_page_center"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/white_image_view"
+        android:src = "@drawable/selfie_icon_white"
+        android:layout_above="@+id/SeeYouSoon"
+        android:layout_alignLeft="@+id/SeeYouSoon"
+        android:layout_alignStart="@+id/SeeYouSoon"
+        android:layout_alignRight="@+id/SeeYouSoon"
+        android:layout_alignEnd="@+id/SeeYouSoon"
+        android:layout_alignTop="@+id/height_anchor_for_image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Selfie"
+        android:id="@+id/selfie"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:layout_above="@+id/SeeYouSoon"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Welcome To "
         android:id="@+id/WelcomeToMessage"
         android:textSize="50dp"
@@ -72,20 +142,7 @@
         android:layout_marginTop="40dp"
         android:typeface="monospace" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/JoinButton"
-        android:textColor="@android:color/white"
-        android:background="@drawable/round_button"
-        android:shadowColor="#007AFF"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="clickFunction" />
+    < -->
 
 
 </RelativeLayout>
