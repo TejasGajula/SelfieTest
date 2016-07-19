@@ -9,60 +9,82 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/post_second_layout"
-    tools:context="com.example.tejas.selfietest.SelfieTestPostSecondActivity">
+    tools:context="com.example.tejas.selfietest.SelfieTestPostSecondActivity"
+    android:background="#000000">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thanks. Want to tell anyone?"
         android:id="@+id/JoinMessage"
-        android:textSize="30dp"
+        android:textSize="24dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="@android:color/black"
-        android:layout_alignBottom="@+id/dummy2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/dummy2"
+        android:layout_alignEnd="@+id/dummy2"
+        android:layout_alignLeft="@+id/dummy2"
+        android:layout_alignStart="@+id/dummy2" />
     <Space
         android:layout_width="40dp"
-        android:layout_height="0dp"
+        android:layout_height="150dp"
         android:id="@+id/dummy"
+        android:layout_above="@+id/last_screen_selfie_name"
         android:layout_centerHorizontal="true" />
     <Space
-        android:layout_width="0dp"
+        android:layout_width="240dp"
         android:layout_height="0dp"
         android:id="@+id/dummy2"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="4dp"
         android:id="@+id/FacebookImage"
         android:src = "@drawable/facebookwhite"
         android:onClick="facebook"
-        android:layout_alignTop="@+id/dummy2"
+        android:layout_below="@+id/JoinMessage"
         android:layout_toLeftOf="@+id/dummy"
-        android:layout_toStartOf="@+id/dummy"
-        android:layout_alignBottom="@+id/twitter" />
+        android:layout_toStartOf="@+id/dummy" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="3dp"
         android:id="@+id/twitter"
-        android:src = "@drawable/twittergood"
+        android:src = "@drawable/twitter_logo"
         android:onClick="twitter"
-        android:layout_below="@+id/dummy2"
+        android:layout_below="@+id/JoinMessage"
         android:layout_toRightOf="@+id/dummy"
         android:layout_toEndOf="@+id/dummy" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/imageView3"
+        android:id="@+id/last_screen_selfie_logo"
         android:src="@drawable/selfie_icon_white"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/JoinMessage" />
+        android:layout_above="@+id/last_screen_selfie_name"
+        android:layout_alignTop="@+id/dummy"
+        android:layout_alignRight="@+id/twitter"
+        android:layout_alignEnd="@+id/twitter"
+        android:layout_alignLeft="@+id/FacebookImage"
+        android:layout_alignStart="@+id/FacebookImage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Selfie"
+        android:layout_marginTop="-24dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="48dp"
+        android:id="@+id/last_screen_selfie_name"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/JoinMessage"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

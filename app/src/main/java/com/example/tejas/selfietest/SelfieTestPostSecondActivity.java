@@ -11,7 +11,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.facebook.share.model.ShareLinkContent;
@@ -58,11 +60,9 @@ public class SelfieTestPostSecondActivity extends AppCompatActivity {
                                                                         getResources().getInteger(R.integer.animation_stay_length));
     }
 
-    private void initializeBackgroundColor()
-    {
-        index=SelfieTestSecondScreen.getColorIndex();
+    private void initializeBackgroundColor() {
+        index = SelfieTestSecondScreen.getColorIndex();
         layout.setBackgroundResource(colors[index]);
-
     }
     private void setBackgroundColor()
     {
