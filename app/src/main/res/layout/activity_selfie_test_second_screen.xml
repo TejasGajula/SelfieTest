@@ -16,12 +16,12 @@
         android:text="See you soon."
         android:id="@+id/JoinMessage"
         android:textSize="18dp"
-
         android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/tw__solid_white"
-        android:layout_below="@+id/selfie_name"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -46,7 +46,7 @@
         android:layout_centerVertical="true"/>
     <Space
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="100dp"
         android:id="@+id/height_anchor_for_image"
         android:layout_above="@+id/second_page_center"
@@ -58,18 +58,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/white_image_view"
         android:src = "@drawable/selfie_icon_white"
-        android:layout_alignTop="@+id/height_anchor_for_image"
-        android:layout_alignBottom="@+id/second_page_center"
-        android:layout_alignRight="@+id/JoinMessage"
-        android:layout_alignEnd="@+id/JoinMessage"
-        android:layout_alignLeft="@+id/JoinMessage"
-        android:layout_alignStart="@+id/JoinMessage" />
+        android:layout_above="@+id/selfie_name"
+        android:layout_alignLeft="@+id/email_edit"
+        android:layout_alignStart="@+id/email_edit"
+        android:layout_alignRight="@+id/email_edit"
+        android:layout_alignEnd="@+id/email_edit"
+        android:layout_alignTop="@+id/height_anchor_for_image" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="-50dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Selfie"
         android:id="@+id/selfie_name"
@@ -77,7 +75,7 @@
         android:textColor="#ffffff"
         android:textAlignment="center"
         android:textSize="40dp"
-        android:layout_below="@+id/white_image_view"
+        android:layout_above="@+id/JoinMessage"
         android:layout_centerHorizontal="true" />
 
     <FrameLayout
