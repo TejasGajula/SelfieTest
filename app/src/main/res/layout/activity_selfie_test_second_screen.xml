@@ -16,6 +16,7 @@
         android:text="See you soon."
         android:id="@+id/JoinMessage"
         android:textSize="18dp"
+        android:textStyle="bold"
         android:layout_marginBottom="12dp"
         android:layout_marginTop="12dp"
         android:layout_gravity="center"
@@ -71,7 +72,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Selfie"
         android:id="@+id/selfie_name"
-
+        android:textStyle="bold"
         android:textColor="#ffffff"
         android:textAlignment="center"
         android:textSize="40dp"

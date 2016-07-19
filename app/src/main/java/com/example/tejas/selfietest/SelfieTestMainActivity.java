@@ -134,7 +134,6 @@ public class SelfieTestMainActivity extends Activity {
         // if (myTextField.length() == 10) {
         DigitsAuthConfig.Builder temp = new DigitsAuthConfig.Builder();
         temp = temp.withThemeResId(R.style.CustomDigitsTheme);
-        temp.withEmailCollection();
         temp = temp.withAuthCallBack(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
